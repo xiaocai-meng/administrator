@@ -41,9 +41,11 @@
 			<span> <?php echo trans('administrator::administrator.itemsperpage') ?></span>
 		</div>
 		<div class="paginator">
+            <!-- ko if: $root.actionPermissions['delete'] !== false  -->
 			<a type="button" id="delete-all" class="btn btn-danger btn-sm disabled" data-bind="click: deleteItems">
 	            <i class="fa fa-trash" aria-hidden="true"></i> <?php echo trans('administrator::administrator.delete_all') ?>
 	        </a>
+            <!-- /ko -->
 			Total: <span data-bind="text: pagination.total()"></span>&nbsp;&nbsp;
 			<input type="button" class="btn btn-outline btn-primary btn-xs" value="<?php echo trans('administrator::administrator.previous') ?>"
 					data-bind="attr: {disabled: pagination.isFirst() || !pagination.last() || !initialized() }, click: function() {page('prev')}" />
